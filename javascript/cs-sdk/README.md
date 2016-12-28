@@ -9,13 +9,12 @@ The all-in-one javascript bundles are already built and ready to use in `dist/` 
 1. Install node version 4
 2. `cd cs-sdk`
 3. run `npm install`
-4. Use the make-like command `npm run` to run the package's tasks: (this assumes you're running a windows machine, see step 5 if not)
+4. On Windows: use the make-like command `npm run` to run the package's tasks: (this assumes you're running a windows machine, see step 5 if not)
     1. `npm run bundle` to build the unminified `dist/cssdk.js` (with built-in source-map).
     2. `set dev=true && npm run bundle` to build the minified `dist/cssdk.min.js`.
     3. `npm test` to run the unit tests.  
-5. If you're running a unixy machine
-    1. In `package.json` under the `scripts` section convert the use of batch-style variable to unix like (`%VAR%` => `$VAR`) before running `npm run`
-    2. To build the minified version run `dev=true && npm run bundle`
+5. On Linux/OSX:
+    1. `npm run test_unix` or `npm run bundle_unix`
 
 On windows machines with more than one visual studio installed, node-gyp complains sometimes. Choosing another visual studio version to use seem to help:
 ```
