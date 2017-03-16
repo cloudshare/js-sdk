@@ -1,4 +1,7 @@
 var Promise = require('es6-promise').Promise;
+if (typeof XMLHttpRequest == 'undefined') {
+    global.XMLHttpRequest = require('xhr2');
+}
 
 function Http() {
 
@@ -18,7 +21,7 @@ Http.prototype.req = function(options) {
 		if (!options.method)
 			throw new Error('HTTP method missing');
 		else if (!options.url)
-			throw new Error('URL is missing');		
+			throw new Error('URL is missing');
 		var xhr = new XMLHttpRequest();
 		xhr.open(options.method, createUrl(options.url, options.queryParams));
 		setHeaders(xhr, options.headers);
@@ -49,7 +52,7 @@ function onReadyStateChange(xhr, resolve, reject) {
 	if (xhr.readyState !== 4)
 		return;
 	var content = parseResponseText(xhr);
-	if (xhr.status >= 200 && xhr.status < 300) 
+	if (xhr.status >= 200 && xhr.status < 300)
 		resolve({content: content, status: xhr.status});
 	else
 		reject({content: content, status: xhr.status});
@@ -64,7 +67,7 @@ function parseResponseText(xhr) {
 
 function isResponseJson(xhr) {
 	var contentType = xhr.getResponseHeader('Content-Type');
-	return contentType && 
+	return contentType &&
 		   (contentType.indexOf('application/json') === 0 || contentType.indexOf('text/json') === 0);
 }
 
