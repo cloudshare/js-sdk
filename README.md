@@ -2,12 +2,13 @@ CloudShare API v3 SDK
 =====================
 Quickstart
 ----------
-### Use the prebuilt javascripts
-The all-in-one javascript bundles are already built and ready to use in `dist/` directory. Just include one of `cssdk.js` or `cssdk.min.js` in your html page. A `cssdk` global object is exposed that contain one method `req()`.
+### Install with NPM
+```
+npm install cloudshare
+```
 
 ### Build it yourself
-1. Install node version 4
-2. `cd cs-sdk`
+1. Install node version >= 4
 3. run `npm install`
 4. On Windows: use the make-like command `npm run` to run the package's tasks: (this assumes you're running a windows machine, see step 5 if not)
     1. `npm run bundle` to build the unminified `dist/cssdk.js` (with built-in source-map).

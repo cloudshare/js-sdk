@@ -1,5 +1,5 @@
 {
-  "name": "cs-sdk",
+  "name": "cloudshare",
   "version": "1.0.0",
   "description": "CloudShare Inc. API v3 SDK",
   "main": "src/index.js",
