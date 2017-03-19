@@ -1,7 +1,7 @@
 {
   "name": "cloudshare",
-  "version": "1.0.0",
-  "description": "CloudShare Inc. API v3 SDK",
+  "version": "1.0.1",
+  "description": "CloudShare JS SDK for REST API v3",
   "main": "src/index.js",
   "webpackSpecConfig": "./spec/webpack.config.js",
   "webpackConfig": "./webpack.config.js",
