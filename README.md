@@ -54,9 +54,9 @@ Example Usage
 You can take a look at `driver/index.html` for a kind of "hello world" example. To run it do the following:
 
 1. `npm install`
-2. `node run server`
+2. `npm run server`
 3. Make sure you set your API ID and API key in the global vars: `API_ID` and `API_KEY` in `driver/index.html`.
-3. Navigate to `localhost:8080/driver/index.html` and open the browser's javascript console.
+4. Navigate to `localhost:8080/driver/index.html` and open the browser's javascript console.
 
 #### List your environments
 ```
@@ -110,6 +110,34 @@ cssdk.req({
     path: 'envs/actions/suspend',
     queryParams: {
         envId: envId
+    },
+    apiId: 'Your API ID',
+    apiKey: 'Your API key'
+})
+.then(function(response) {
+    console.log(response);
+})
+.catch(function(response) {
+    if (response instanceof Error)
+        console.log(response);
+    else
+        console.log('got status:', response.status,
+                    'with content:', response.content);
+});
+```
+
+#### Create an end user invitation
+```
+cssdk.req({
+    hostname: 'use.cloudshare.com',
+    method: 'POST',
+    path: 'invitations/actions/inviteanonymousendusertoblueprint',
+    content: {    
+        policyId: 'POIdMkap90pdv1gA_39i79Ffa',
+        blueprintId: 'BPlaD_p14Vlzx5KqWpMm0_aB',
+        owningProjectMemberId: 'VPqDoa5_pKjhNxZ2QlApYtdsl',
+        opportunity: 'My Opportunity',
+        validForDays: 15
     },
     apiId: 'Your API ID',
     apiKey: 'Your API key'
